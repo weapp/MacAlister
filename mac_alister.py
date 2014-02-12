@@ -12,7 +12,7 @@ class MacAlister:
         base64string = base64.encodestring('%s:%s' % (1234, pwd))[:-1]
         req.add_header("Authorization", "Basic %s" % base64string)
         macspage = urllib2.urlopen(req).read()
-        return re.findall("<tr> <td><p align=center> (.*)", macspage)
+        return re.findall("(..:..:..:..:..:..)", macspage)
 
 
 if __name__ == '__main__':
