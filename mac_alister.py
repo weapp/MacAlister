@@ -9,7 +9,7 @@ class MacAlister:
         if pwd is None:
             pwd = self.get_password()
         req = urllib2.Request("http://192.168.1.1/wlstationlist.cmd")
-        base64string = base64.encodestring('%s:%s' % (1234, pwd))[:-1]
+        base64string = base64.encodestring('%s:%s' % (user, pwd))[:-1]
         req.add_header("Authorization", "Basic %s" % base64string)
         macspage = urllib2.urlopen(req).read()
         return re.findall("(..:..:..:..:..:..)", macspage)
